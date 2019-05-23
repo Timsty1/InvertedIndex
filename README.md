@@ -29,15 +29,20 @@ PostingList List
 
 ## 索引文件
 索引建立完成后，生成4个文件
+
 corpus.index：用来保存所有的PostingList
+
 doc.dict：保存Doc Dictionary
+
 term.dict：保存Term Dictionary
+
 posting.dict：保存每个PostingList在索引文件corpus.index中的位置
 
 ## VB(Variable byte codes)压缩
 对于每个PostingList，如果不采取压缩技术，我们会采用一个int类型（4字节）来存储所有的Doc ID。
 在VB编码中，我们只存储第一个Doc ID，剩下的Doc ID只存储和前面Doc ID的差值。
 样例:
+
 | docIDs | 824 | 829 | 215406
 | :------| :------: | :------: |:-----:
 | gaps |  | 5 | 214577
@@ -59,9 +64,13 @@ posting.dict：保存每个PostingList在索引文件corpus.index中的位置
 格式2用于查询，Basic|VB表示选择的压缩方式。index_dir表示索引文件所在的目录。
 
 假设我们用toy_example作为建立索引的原始数据，采用无压缩方式创建索引，生成的索引文件存储在output目录下，则配置为：
+
 Index toy_Basic example/data output
+
 如果想基于上述索引进行查询，则配置格式为：
+
 Query Basic output
 ## 项目感受
 这是我着手写的第一个工程量较大的C++项目，综合运用了C++的多项特性。这也是我第一次尝试从零开始复现论文算法，其间花费了大量的时间和精力，不过好在最终还是得偿所愿完成了整个项目。
-非常感谢孙延涛老师的教导和杨宇同学的帮助。
+
+非常感谢孙延涛老师的教导和杨宇同学的帮助！
