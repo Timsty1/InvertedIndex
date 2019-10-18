@@ -6,7 +6,7 @@ class BasicIndex : public BaseIndex
 {
 public:
 	BasicIndex(void);
-	~BasicIndex(void);
+	virtual ~BasicIndex(void);
 
 	PostingList* readPosting(ifstream& in,streampos pos);
 	void readPostings(ifstream& in, map<int, PostingList*> &postinglists);

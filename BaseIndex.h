@@ -8,7 +8,7 @@ protected:
 public:
 	int type;
 	BaseIndex(void);
-	~BaseIndex(void);
+	virtual ~BaseIndex(void);
 
 	virtual PostingList* readPosting(ifstream& in, streampos pos) = 0;
 	virtual void readPostings(ifstream& in, map<int, PostingList*> &postinglists) = 0;
